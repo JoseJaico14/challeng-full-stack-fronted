@@ -14,13 +14,13 @@ RUN npm install
 COPY . .
 
 # Construye la aplicación para producción
-RUN npm run build
+# RUN npm run build 
 
 # Etapa 2: Servir con Nginx
 FROM nginx:alpine
 
-# Copia los archivos compilados de la etapa anterior al directorio de Nginx
-COPY --from=build /app/dist /usr/share/nginx/html
+# Copia los archivos compilados de la etapa anterior al directorio de Nginx --from=build 
+COPY ./dist /usr/share/nginx/html
 
 # Copia la configuración personalizada de Nginx (si tienes)
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
