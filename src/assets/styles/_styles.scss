@@ -1,0 +1,256 @@
+@import './variables';
+// Estilos globales
+body {
+  font-family: 'Argentum Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background-color: $form-background; // Fondo general
+  color: $dark-text-color;
+}
+
+header {
+  background: $background-gradient;
+  box-shadow: $box-shadow;
+  padding: 20px 60px;
+  color: $text-color;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  height: 34px;
+  left: 0px;
+  top: 0px;
+  gap: 10px;
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 180px;
+    height: 34px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+}
+
+.container {
+  margin: 2rem auto;
+  width: 80%;
+  h1 {
+    font-size: 28px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 32.97px;
+    margin: 0;
+    color: $dark-text-color;
+
+    position: absolute;
+    width: 360px;
+    height: 33px;
+    top: 129px;
+    left: 0; 
+    right: 0; 
+    margin-inline: auto; 
+  }
+}
+.content{
+  position: absolute;
+  top: 258px;
+  left: 0; 
+  right: 0; 
+  margin-inline: auto; 
+  width: fit-content;
+}
+.text-center{
+  text-align: center;
+}
+.text-end{
+  text-align:end;
+}
+
+.table {
+  width: 690px;
+  background-color: $primary-color;
+  border-radius: $table-border-radius;
+  box-shadow: $box-shadow;
+  overflow: hidden;
+  padding: 10px 30px 40px 30px;
+
+  table {
+    width: 690px;
+    border-collapse: collapse;
+    text-align: left;
+
+    thead {
+      tr {
+        color: $text-color;
+
+        th {
+          padding: 1rem;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 24px;
+          letter-spacing: 0.15px;
+        }
+      }
+      .spacer td{
+        padding: 0 !important;
+        height: 4px;
+        border-radius: 0 !important;
+        background: $background-special !important;
+      }
+    }
+
+    tbody {
+      tr {
+        &:nth-child(even) {
+          // background-color: lighten($primary-color, 5%);
+        }
+
+        &:hover {
+          // background-color: darken($primary-color, 5%);
+        }
+        .created-at{
+          border-left: 4px solid $background-special;
+          border-right: 4px solid $background-special;
+          text-align: center;
+          font-size: 16px;
+          font-weight: 400;
+          font-style: normal;
+          line-height: 24px;
+          letter-spacing: 0.15px;
+        }
+        .title{
+          font-size: 12px;
+          font-weight: 400;
+          font-style: normal;
+          line-height: 14.13px;
+          letter-spacing: 0.25px;
+        }
+        .action{
+          text-align: left;
+          font-size: 16px;
+          font-weight: 400;
+          font-style: normal;
+          line-height: 24px;
+          letter-spacing: 0.15px;
+        }
+        // &:not(:last-child) {
+        td {
+          padding: 0.4rem;
+          color: $text-color;
+          font-size: 1rem;
+          vertical-align: middle;
+          
+          a {
+            color: $text-color;
+            font-weight: bold;
+            text-decoration: none;
+            
+            display: flex;
+            flex-direction: row;
+            justify-content: end;
+            align-items: center;
+            padding: 0px;
+            gap: 5px;
+
+            &:hover {
+              text-decoration: underline;
+            }
+
+            .icon {
+              margin-left: 0.5rem;
+            }
+          }
+        }
+      }
+      .spacer{
+        td{
+          padding: 0 !important;
+          height: 15px;
+          border-radius: 0 !important;
+          background: transparent !important;
+          div {
+            width: 100%;
+            background: $background-special;
+            height: 1px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.create-report-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  
+  margin: 1.5rem auto 0;
+  padding: 12px 40px;
+  gap: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+
+  border: none;
+  border-radius: 50px;
+  width: 187px;
+  height: 43px;
+
+  cursor: pointer;
+  box-shadow: $box-shadow;
+  transition: all 0.3s ease;
+  background: $secondary-color;
+  color: $dark-text-color;
+  &:hover {
+    background: darken($secondary-color, 10%);
+  }
+}
+
+$size: 98px;
+$border-size: 5px;
+
+.loader {
+  display: inline-grid;
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  position: relative;
+  animation: rotate 1s linear infinite;
+
+  &::before,
+  &::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: $border-size solid $primary-color;
+    animation: prixClipFix 2s linear infinite;
+  }
+
+  &::after {
+    border-color: $secondary-color;
+    animation: prixClipFix 2s linear infinite, rotate 0.5s linear infinite reverse;
+    inset: 6px;
+  }
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes prixClipFix {
+  0% { clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0); }
+  25% { clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0); }
+  50% { clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%); }
+  75% { clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%); }
+  100% { clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0); }
+}
+
+@import './report';
