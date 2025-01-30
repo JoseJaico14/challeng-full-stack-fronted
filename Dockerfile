@@ -25,8 +25,8 @@ COPY ./dist /usr/share/nginx/html
 # Copia la configuración personalizada de Nginx (si tienes)
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 
-# Expone el puerto 80
-EXPOSE 80
+# Expone el puerto 8080
+EXPOSE 8080
 
 # Comando por defecto para iniciar Nginx
 CMD ["nginx", "-g", "daemon off;"]
