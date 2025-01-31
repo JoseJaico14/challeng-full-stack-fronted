@@ -84,10 +84,10 @@
                     text: 'Se registro el reporte',
                     icon: 'success',
                 })
-                router.push({
-                    name: 'home'
-                });
                 setTimeout(() => {
+                    router.push({
+                        name: 'home'
+                    });
                     loading.value = false;
                 },1500)
             })
